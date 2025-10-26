@@ -422,7 +422,7 @@ Output example:
 
 ## 🪄 One-Call Convenience Search
 
-### `search(query=None, text_document=None, chunk_size=None, chunk_overlap=None, n_results=None, collection_name=None, model_name="USE")`
+### `search(query=None, text_document=None, chunk_size=None, chunk_overlap=None, n_results=None)`
 
 End-to-end helper that:
 
@@ -623,37 +623,41 @@ LiuEmbeddings includes an advanced utility function for rapid prototyping and st
 ### Function Documentation
 
 ```python
-def fastquery(
-    query: str = None,
-    text_document: str = None,
-    chunk_size: int = None,
-    chunk_overlap: int = None,
-    n_results: int = None,
-    collection_name: str = None,
-    model_name: str = "USE"
+fastquery(
+        query: str=None,
+        text_document: str,
+        chunk_size: int, #deafult from config file
+        chunk_overlap: int, #deafult from config file
+        n_results: int, #deafult from config file
+        with_scores: bool = False, #deafult from config file
+        collection_name: str = fastquery.collection_name,
+        model_name: str = fastquery.model_name 
 ) -> list:
-    """
-    Rapid semantic search with minimal configuration.
+        """
+        One-line semantic search function.
 
-    - Uses a dedicated embedding model and vector store per call.
-    - The embedding model is fixed for the life of the vector store/collection.
-    - Ideal for quick prototyping and temporary workloads.
-
-    Args:
-        text_document: The input text/document.
-        query: The string to search for.
-        chunk_size: Document chunk size (default from config).
-        chunk_overlap: Overlap between chunks (default from config).
-        n_results: Number of top results (default from config).
-        with_scores: If True, returns similarity scores.
-        collection_name: Optional custom name for collection.
-        model_name: Embedding model to use (default "USE").
-
-    Returns:
-        List of most relevant document chunks OR dicts if with_scores=True.
-
-    Raises:
-        ValueError/RuntimeError: For invalid input or failures.
+        note -> use the same model for embedding and searching.
+        by default its use "USE" model.
+        
+        Combines chunking, embedding, storage, and search in a single call.
+        Perfect for quick prototyping and small applications.
+        
+        Args:
+            text_document: Long text or document to search within
+            query: Query string to search for
+            chunk_size: Size of text chunks (default: from config)
+            chunk_overlap: Overlap between chunks (default: from config)
+            n_results: Number of results to return (default: from config)
+            with_scores: give smilarity search like answer
+            collection_name: Name for the vector store collection (default: from config)
+            model_name: Embedding model to use (default: "USE")
+            
+        Returns:
+            List of most similar chunks from the document
+            
+        Raises:
+            ValueError: If inputs are invalid
+            RuntimeError: If operation failsalueError/RuntimeError: For invalid input or failures.
     """
 ```
 

@@ -142,3 +142,7 @@ temp/
 
 #testing files
 example.*
+
+
+#pip module api
+.pypirc

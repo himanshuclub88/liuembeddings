@@ -19,7 +19,7 @@ setup(
     "decrease api charge as run on local light weight and easy to learn",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/liuembeddings",
+    url="https://github.com/himanshuclub88/liuembeddings",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3.8",
@@ -39,7 +39,7 @@ setup(
     "tensorflow==2.20.0",
     "tensorflow-hub==0.16.1",
     "chromadb==1.2.1",
-    "numpy>=1.20.0",
+    "numpy>=1.26.4",
     ],
 
 
@@ -63,4 +63,5 @@ setup(
         "Source": "https://github.com/himanshuclub88/liuembeddings",
         "Documentation": "https://github.com/himanshuclub88/liuembeddings/README.md",
     },
+    include_package_data=True,
 )

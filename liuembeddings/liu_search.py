@@ -15,7 +15,7 @@ def fastquery(
         chunk_size: int = None,
         chunk_overlap: int = None,
         n_results: int = None,
-        with_scores: bool = False,
+        with_score: float = None,
         collection_name: str = fastquery.collection_name,
         model_name: str = fastquery.model_name
 ) -> list:
@@ -34,7 +34,7 @@ def fastquery(
             chunk_size: Size of text chunks (default: from config)
             chunk_overlap: Overlap between chunks (default: from config)
             n_results: Number of results to return (default: from config)
-            with_scores: give smilarity search like answer
+            with_score: give smilarity search like answer
             collection_name: Name for the vector store collection (default: from config)
             model_name: Embedding model to use (default: "USE")
             
@@ -100,12 +100,12 @@ def fastquery(
             
             # Step 5: Query
             if query:
-                if not with_scores:
+                if not with_score:
                     logger.info(f"Searching for: '{query}'")
                     results = vectorstore.query(query, n_results=n_results)
                 else:
                     logger.info(f"Searching for: '{query}'")
-                    results = vectorstore.similarity_search(query, n_results=n_results)
+                    results = vectorstore.similarity_search(query, n_results=n_results, with_score=with_score)
                      
             
                 logger.info(f"✅ Search complete. Found {len(results)} results")

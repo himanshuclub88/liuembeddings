@@ -123,8 +123,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# ChromaDB
-chroma_db/
+#DB
+liu_db/
 *.db
 
 # IDE

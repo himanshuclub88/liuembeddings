@@ -4,7 +4,7 @@
 Vector store implementation using ChromaDB with TensorFlow embeddings.
 """
 
-from typing import List, Dict, Optional, Any
+from typing import List, Dict, Optional, Any, Tuple
 import chromadb
 from chromadb.api.types import Documents, EmbeddingFunction, Embeddings
 import os
@@ -106,7 +106,7 @@ class LiuVectorStore:
         
         self.embedding_model = embedding_model
         self.collection_name = collection_name or LiuConfig.DEFAULT_COLLECTION_NAME
-        persist_path = persist_path or LiuConfig.DEFAULT_CHROMA_PATH
+        persist_path = persist_path or LiuConfig.DEFAULT_VECTOR_PATH
         
         try:
             # Ensure persist path exists
@@ -228,7 +228,7 @@ class LiuVectorStore:
         self, 
         query_text: str, 
         n_results: int = None
-    ) -> List[str]:
+    ) -> Tuple[Dict[str, Any], List[str]]:
         """
         Perform semantic search on stored documents.
         
@@ -268,14 +268,15 @@ class LiuVectorStore:
         self, 
         query_text: str, 
         n_results: int = None,
-    ) -> List[Any]:
+        with_score: float = None,
+    ) -> Tuple[Dict[str, Any], List[Dict[str, Any]]]:
         """
         Semantic similarity search with optional scores.
         
         Args:
             query_text: Query string
             n_results: Number of results to return
-            with_scores: Include similarity scores in results
+            with_score: (Deafult: 0.4) Include similarity of .4 scores in results
             
         Returns:
             List of most similar raw,documents
@@ -283,6 +284,7 @@ class LiuVectorStore:
             documents : is list of dict id,document,metadata
         """
         n_results = n_results or LiuConfig.DEFAULT_N_RESULTS
+        with_score = with_score or LiuConfig.DEFAULT_SIMILARITY_SEARCH_SCORE_THRESHOLD
         
         try:
             results = self.collection.query(
@@ -297,7 +299,7 @@ class LiuVectorStore:
                     "document": results['documents'][0][i],
                     "metadata": results['metadatas'][0][i],
                     "similarity_score": float(1 - results['distances'][0][i])
-            } for i in range(len(results['ids'][0]))]
+            } for i in range(len(results['ids'][0])) if float(1 - results['distances'][0][i])> with_score]
             
         
         except Exception as e:
@@ -480,7 +482,7 @@ class LiuVectorStore:
         chunk_size: int = None,
         chunk_overlap: int = None,
         n_results: int = None,
-        ) -> list:
+        ) -> Tuple[Dict[str, Any], List[str]]:
         """
         One-line semantic search function.
         

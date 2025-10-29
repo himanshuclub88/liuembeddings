@@ -11,7 +11,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="liuembeddings",
-    version="0.1.0",
+    version="1.1.0",
     author="Himanshu Singh",
     author_email="Himanshuclub88@gmail.com",
     description="TensorFlow-based embeddings with ChromaDB vector " \
@@ -61,7 +61,7 @@ setup(
     project_urls={
         "Bug Reports": "https://github.com/himanshuclub88/liuembeddings/issues",
         "Source": "https://github.com/himanshuclub88/liuembeddings",
-        "Documentation": "https://github.com/himanshuclub88/liuembeddings/README.md",
+        "Documentation": "https://himanshuclub88.github.io/liuembeddings/",
     },
     include_package_data=True,
 )

@@ -1,0 +1,851 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://himanshuclub88.github.io/liuembeddings/PACKAGE_STRUCTURE/">
+      
+      
+        <link rel="prev" href="../DEVELOPER_GUIDE/">
+      
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Package Structure - Liu Embeddings</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#package_structuremd" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Liu Embeddings" class="md-header__button md-logo" aria-label="Liu Embeddings" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Liu Embeddings
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Package Structure
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/himanshuclub88/liuembeddings" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    himanshuclub88/liuembeddings
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Liu Embeddings" class="md-nav__button md-logo" aria-label="Liu Embeddings" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Liu Embeddings
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/himanshuclub88/liuembeddings" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    himanshuclub88/liuembeddings
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEVELOPER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developer Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Package Structure
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="package_structuremd">PACKAGE_STRUCTURE.md<a class="headerlink" href="#package_structuremd" title="Permanent link">&para;</a></h1>
+<h1 id="liuembeddings-complete-package-structure">LiuEmbeddings - Complete Package Structure<a class="headerlink" href="#liuembeddings-complete-package-structure" title="Permanent link">&para;</a></h1>
+<h2 id="final-directory-layout">Final Directory Layout<a class="headerlink" href="#final-directory-layout" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>liuembeddings/
+│
+├── liuembeddings/                    # Main package directory
+│   ├── __init__.py                   # Package initialization (rename from __init___v2.py)
+│   ├── embeddings.py                 # Embeddings module (rename from embeddings_v2.py)
+│   ├── vectorstore.py                # Vector store module (rename from vectorstore_v2.py)
+│   ├── utils.py                      # Utility functions (rename from utils_v2.py)
+│   ├── config.py                     # Configuration management
+│   └── logger.py                     # Logging setup
+│
+├── tests/                            # Test directory
+│   ├── __init__.py                   # (empty file)
+│   ├── test_embeddings.py            # Embeddings tests
+│   └── test_vectorstore.py           # Vector store tests
+│
+├── docs/                             # Documentation (optional)
+│   ├── README.md                     # Main documentation
+│   ├── DEVELOPER_GUIDE.md            # For developers
+│   ├── MIGRATION_GUIDE.md            # Migration guide
+│   └── IMPROVEMENTS_SUMMARY.md       # Changes summary
+│
+│
+│
+├── example_usage.py                  # Usage examples
+├── example.minimal.py                # Usage examples for fastquery
+├── setup.py                          # Package setup
+├── requirements.txt                  # Dependencies
+├── README.md                         # Main README (rename from README_v2.md)
+├── LICENSE                           # MIT License
+├── .gitignore                        # Git ignore rules
+└── MANIFEST.in                       # Package manifest (optional)
+</code></pre></div>
+<hr />
+<h2 id="file-descriptions-rename-instructions">File Descriptions &amp; Rename Instructions<a class="headerlink" href="#file-descriptions-rename-instructions" title="Permanent link">&para;</a></h2>
+<h3 id="core-module-files">Core Module Files ()<a class="headerlink" href="#core-module-files" title="Permanent link">&para;</a></h3>
+<p><strong>File: embeddings.py</strong> 
+- TensorFlow-based embeddings using Universal Sentence Encoder
+- Supports multiple models (USE, BERT)
+- Features: model caching, batch processing, type validation
+- Key Classes: <code>LiuEmbeddings</code>
+- Key Methods: <code>embed_query()</code>, <code>embed_documents()</code>, <code>embed_documents_batch()</code></p>
+<p><strong>File: vectorstore.py</strong> 
+- ChromaDB vector database wrapper
+- CRUD operations for embeddings
+- Semantic search capabilities
+- Metadata support
+- Key Classes: <code>LiuVectorStore</code>, <code>TFEmbeddingWrapper</code>
+- Key Methods: <code>add_texts()</code>, <code>query()</code>, <code>search_by_id()</code>, <code>update_by_id()</code>, <code>delete_by_id()</code></p>
+<p><strong>File: utils.py</strong> 
+- Text processing utilities
+- Chunking with overlap
+- Text cleaning
+- Batch generators
+- Key Functions: <code>split_text()</code>, <code>clean_text()</code>, <code>validate_texts()</code>, <code>batch_generator()</code></p>
+<p><strong>File: <strong>init</strong>.py</strong> 
+- Package initialization
+- Public API exports
+- Convenience function <code>liu_search()</code>
+- Imports: <code>LiuEmbeddings</code>, <code>LiuVectorStore</code>, utility functions, <code>LiuConfig</code></p>
+<h3 id="new-supporting-files-keep-as-is">New Supporting Files (KEEP AS IS)<a class="headerlink" href="#new-supporting-files-keep-as-is" title="Permanent link">&para;</a></h3>
+<p><strong>File: config.py</strong>
+- Centralized configuration management
+- Model registry and metadata
+- Default values for all settings
+- Logging configuration
+- Key Class: <code>LiuConfig</code>
+- Properties: <code>DEFAULT_CHUNK_SIZE</code>, <code>AVAILABLE_MODELS</code>, <code>LOG_LEVEL</code>, etc.</p>
+<p><strong>File: logger.py</strong>
+- Logging infrastructure setup
+- Consistent logging format
+- Log level management
+- Key Functions: <code>setup_logger()</code></p>
+<h3 id="testing-files">Testing Files<a class="headerlink" href="#testing-files" title="Permanent link">&para;</a></h3>
+<p><strong>File: tests/test_embeddings.py</strong>
+- Unit tests for <code>LiuEmbeddings</code>
+- Test cases: initialization, embedding, error handling, batch processing
+- Uses pytest fixtures and assertions
+- ~15 test methods</p>
+<p><strong>File: tests/test_vectorstore.py</strong>
+- Unit tests for <code>LiuVectorStore</code>
+- Test cases: CRUD operations, search, metadata, batch operations
+- Includes temporary directory management
+- ~18 test methods</p>
+<h3 id="documentation-files">Documentation Files<a class="headerlink" href="#documentation-files" title="Permanent link">&para;</a></h3>
+<p><strong>File: README.md</strong> (rename from README_v2.md)
+- User-focused documentation
+- Quick start guide
+- API reference
+- Usage examples
+- Feature list
+- Installation instructions</p>
+<p><strong>File: DEVELOPER_GUIDE.md</strong>
+- Architecture overview
+- Module descriptions
+- Design patterns
+- Testing guidelines
+- Performance tips
+- Code quality tools</p>
+<p><strong>File: MIGRATION_GUIDE.md</strong>
+- Step-by-step migration from old version
+- API changes and new features
+- Common issues and solutions
+- Verification checklist</p>
+<p><strong>File: IMPROVEMENTS_SUMMARY.md</strong>
+- Summary of all improvements
+- Quality metrics comparison
+- Benefits for users and developers
+- Next steps for production</p>
+<p><strong>File: PACKAGE_STRUCTURE.md</strong> (this file)
+- Complete file and directory layout
+- File descriptions
+- Quick reference
+- File dependencies</p>
+<h3 id="configuration-files">Configuration Files<a class="headerlink" href="#configuration-files" title="Permanent link">&para;</a></h3>
+<p><strong>File: setup.py</strong>
+- Package metadata and configuration
+- Dependencies specification
+- Entry points
+- Classifiers and keywords
+- Development dependencies</p>
+<p><strong>File: requirements.txt</strong>
+- Core dependencies with versions
+- Optional dev dependencies (commented)
+- Clear version constraints</p>
+<p><strong>File: .gitignore</strong>
+- Python bytecode files
+- Virtual environments
+- Build artifacts
+- IDE files
+- Project-specific files</p>
+<hr />
+<h2 id="file-dependencies-import-order">File Dependencies &amp; Import Order<a class="headerlink" href="#file-dependencies-import-order" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>config.py
+    ↓
+logger.py (depends on config)
+    ↓
+embeddings.py (depends on logger, config)
+vectorstore.py (depends on logger, config, embeddings)
+utils.py (depends on logger, config)
+    ↓
+__init__.py (depends on all above)
+</code></pre></div>
+<h3 id="recommended-import-order">Recommended Import Order<a class="headerlink" href="#recommended-import-order" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Configuration (no dependencies)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">config</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiuConfig</span>
+
+<span class="c1"># 2. Logger (depends on config)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup_logger</span>
+
+<span class="c1"># 3. Core modules (depend on logger, config)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">embeddings</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiuEmbeddings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">vectorstore</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiuVectorStore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">split_text</span><span class="p">,</span> <span class="n">clean_text</span>
+
+<span class="c1"># 4. Public API (depends on all)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">liuembeddings</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiuEmbeddings</span><span class="p">,</span> <span class="n">LiuVectorStore</span><span class="p">,</span> <span class="n">search</span>
+</code></pre></div>
+<hr />
+<h3 id="step-1-prepare-files">Step 1: Prepare Files<a class="headerlink" href="#step-1-prepare-files" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Rename files to remove _v2 suffix</span>
+mv<span class="w"> </span>embeddings_v2.py<span class="w"> </span>embeddings.py
+mv<span class="w"> </span>vectorstore_v2.py<span class="w"> </span>vectorstore.py
+mv<span class="w"> </span>utils_v2.py<span class="w"> </span>utils.py
+mv<span class="w"> </span>__init___v2.py<span class="w"> </span>__init__.py
+mv<span class="w"> </span>README_v2.md<span class="w"> </span>README.md
+</code></pre></div>
+<h3 id="step-2-directory-structure">Step 2: Directory Structure<a class="headerlink" href="#step-2-directory-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ensure directories exist</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>liuembeddings
+mkdir<span class="w"> </span>-p<span class="w"> </span>tests
+mkdir<span class="w"> </span>-p<span class="w"> </span>docs
+
+<span class="c1"># Move files to correct locations</span>
+mv<span class="w"> </span>embeddings.py<span class="w"> </span>config.py<span class="w"> </span>logger.py<span class="w"> </span>liuembeddings/
+mv<span class="w"> </span>vectorstore.py<span class="w"> </span>utils.py<span class="w"> </span>__init__.py<span class="w"> </span>liuembeddings/
+mv<span class="w"> </span>test_*.py<span class="w"> </span>tests/
+</code></pre></div>
+<h3 id="step-3-install-dependencies">Step 3: Install Dependencies<a class="headerlink" href="#step-3-install-dependencies" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<h3 id="step-4-verify-setup">Step 4: Verify Setup<a class="headerlink" href="#step-4-verify-setup" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test imports</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from liuembeddings import LiuEmbeddings; print(&#39;✓ Import works&#39;)&quot;</span>
+
+<span class="c1"># Run tests</span>
+pytest<span class="w"> </span>tests/<span class="w"> </span>-v
+
+<span class="c1"># Check code quality</span>
+flake8<span class="w"> </span>liuembeddings/
+mypy<span class="w"> </span>liuembeddings/
+</code></pre></div>
+<hr />
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<h3 id="user-workflow">User Workflow<a class="headerlink" href="#user-workflow" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Import</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">liuembeddings</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiuEmbeddings</span><span class="p">,</span> <span class="n">LiuVectorStore</span><span class="p">,</span> <span class="n">split_text</span>
+
+<span class="c1"># 2. Create embedder</span>
+<span class="n">embedder</span> <span class="o">=</span> <span class="n">LiuEmbeddings</span><span class="p">()</span>
+
+<span class="c1"># 3. Create vector store</span>
+<span class="n">store</span> <span class="o">=</span> <span class="n">LiuVectorStore</span><span class="p">(</span><span class="n">embedder</span><span class="p">)</span>
+
+<span class="c1"># 4. Add documents</span>
+<span class="n">docs</span> <span class="o">=</span> <span class="n">split_text</span><span class="p">(</span><span class="n">long_text</span><span class="p">)</span>
+<span class="n">store</span><span class="o">.</span><span class="n">add_texts</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+
+<span class="c1"># 5. Search</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">similarity_search</span><span class="p">(</span><span class="s2">&quot;query&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="developer-workflow">Developer Workflow<a class="headerlink" href="#developer-workflow" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Setup</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+pip<span class="w"> </span>install<span class="w"> </span>pytest<span class="w"> </span>black<span class="w"> </span>flake8<span class="w"> </span>mypy
+
+<span class="c1"># Test</span>
+pytest<span class="w"> </span>tests/<span class="w"> </span>-v
+pytest<span class="w"> </span>tests/<span class="w"> </span>--cov<span class="o">=</span>liuembeddings
+
+<span class="c1"># Format</span>
+black<span class="w"> </span>liuembeddings/
+
+<span class="c1"># Lint</span>
+flake8<span class="w"> </span>liuembeddings/
+
+<span class="c1"># Type check</span>
+mypy<span class="w"> </span>liuembeddings/
+</code></pre></div>
+<hr />
+<h2 id="module-matrix">Module Matrix<a class="headerlink" href="#module-matrix" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Imports</th>
+<th>Exports</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>config.py</td>
+<td>none</td>
+<td>LiuConfig</td>
+<td>Configuration</td>
+</tr>
+<tr>
+<td>logger.py</td>
+<td>config</td>
+<td>setup_logger</td>
+<td>Logging</td>
+</tr>
+<tr>
+<td>embeddings.py</td>
+<td>logger, config, TensorFlow</td>
+<td>LiuEmbeddings</td>
+<td>Embeddings</td>
+</tr>
+<tr>
+<td>vectorstore.py</td>
+<td>logger, config, ChromaDB</td>
+<td>LiuVectorStore</td>
+<td>Storage</td>
+</tr>
+<tr>
+<td>utils.py</td>
+<td>logger, config, re</td>
+<td>Functions</td>
+<td>Utilities</td>
+</tr>
+<tr>
+<td><strong>init</strong>.py</td>
+<td>All above</td>
+<td>Public API</td>
+<td>Package</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="version-information">Version Information<a class="headerlink" href="#version-information" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Version</strong>: 0.1.0 (Alpha)</li>
+<li><strong>Python</strong>: 3.8+</li>
+<li><strong>Status</strong>: Production-ready</li>
+<li><strong>License</strong>: MIT</li>
+</ul>
+<hr />
+<h2 id="file-checklist-before-release">File Checklist Before Release<a class="headerlink" href="#file-checklist-before-release" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] All _v2 files renamed to base names</li>
+<li>[ ] Imports updated in <strong>init</strong>.py</li>
+<li>[ ] README.md renamed from README_v2.md</li>
+<li>[ ] All tests pass: <code>pytest tests/ -v</code></li>
+<li>[ ] Code formatted: <code>black liuembeddings/</code></li>
+<li>[ ] No linting issues: <code>flake8 liuembeddings/</code></li>
+<li>[ ] Type hints valid: <code>mypy liuembeddings/</code></li>
+<li>[ ] Documentation complete</li>
+<li>[ ] setup.py configured</li>
+<li>[ ] requirements.txt updated</li>
+<li>[ ] .gitignore in place</li>
+<li>[ ] LICENSE file included</li>
+<li>[ ] Examples working</li>
+</ul>
+<hr />
+<h2 id="file-statistics">File Statistics<a class="headerlink" href="#file-statistics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Count</th>
+<th>LOC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core modules</td>
+<td>6</td>
+<td>~1500</td>
+</tr>
+<tr>
+<td>Test files</td>
+<td>2</td>
+<td>~300</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>5</td>
+<td>~2000</td>
+</tr>
+<tr>
+<td>Config files</td>
+<td>3</td>
+<td>~50</td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>1</td>
+<td>~150</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>17</strong></td>
+<td><strong>~4000</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="post-installation-verification">Post-Installation Verification<a class="headerlink" href="#post-installation-verification" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify structure</span>
+tree<span class="w"> </span>liuembeddings/
+<span class="c1"># Expected output:</span>
+<span class="c1"># liuembeddings/</span>
+<span class="c1"># ├── __init__.py</span>
+<span class="c1"># ├── embeddings.py</span>
+<span class="c1"># ├── vectorstore.py</span>
+<span class="c1"># ├── utils.py</span>
+<span class="c1"># ├── config.py</span>
+<span class="c1"># └── logger.py</span>
+
+<span class="c1"># Verify imports</span>
+python<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">from liuembeddings import (</span>
+<span class="s">    LiuEmbeddings,</span>
+<span class="s">    LiuVectorStore,</span>
+<span class="s">    split_text,</span>
+<span class="s">    clean_text,</span>
+<span class="s">    LiuConfig,</span>
+<span class="s">    setup_logger,</span>
+<span class="s">    liu_search</span>
+<span class="s">)</span>
+<span class="s">print(&quot;✓ All imports successful&quot;)</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Verify tests</span>
+pytest<span class="w"> </span>tests/<span class="w"> </span>-v<span class="w"> </span>--tb<span class="o">=</span>short
+</code></pre></div>
+<hr />
+<h2 id="next-publishing-to-pypi">Next: Publishing to PyPI<a class="headerlink" href="#next-publishing-to-pypi" title="Permanent link">&para;</a></h2>
+<p>Once verified:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build package</span>
+python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>bdist_wheel
+
+<span class="c1"># Upload</span>
+twine<span class="w"> </span>upload<span class="w"> </span>dist/*
+
+<span class="c1"># Install from PyPI</span>
+pip<span class="w"> </span>install<span class="w"> </span>liuembeddings
+</code></pre></div>
+<hr />
+<h2 id="support-documentation-index">Support &amp; Documentation Index<a class="headerlink" href="#support-documentation-index" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Document</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User guide</td>
+<td>README.md</td>
+</tr>
+<tr>
+<td>Developer info</td>
+<td>DEVELOPER_GUIDE.md</td>
+</tr>
+<tr>
+<td>Migration help</td>
+<td>MIGRATION_GUIDE.md</td>
+</tr>
+<tr>
+<td>What changed</td>
+<td>IMPROVEMENTS_SUMMARY.md</td>
+</tr>
+<tr>
+<td>Structure</td>
+<td>PACKAGE_STRUCTURE.md (this file)</td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>example_usage.py</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/himanshuclub88" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://pypi.org/project/liuembeddings/" target="_blank" rel="noopener" title="PyPI" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.expand", "toc.integrate", "search.highlight", "content.code.annotate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

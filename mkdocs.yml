@@ -1,0 +1,55 @@
+site_name: Liu Embeddings
+site_url: https://himanshuclub88.github.io/liuembeddings/
+repo_url: https://github.com/himanshuclub88/liuembeddings
+repo_name: himanshuclub88/liuembeddings
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  features:
+    - navigation.instant
+    - navigation.expand
+    - toc.integrate
+    - search.highlight
+    - content.code.annotate
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: deep purple
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Documentation: docs.md
+  - Developer Guide: DEVELOPER_GUIDE.md
+  - Package Structure: PACKAGE_STRUCTURE.md
+  
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - codehilite
+  - footnotes
+  - def_list
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/himanshuclub88
+      name: GitHub
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/liuembeddings/
+      name: PyPI
+  generator: false

@@ -18,10 +18,10 @@ class LiuConfig:
             "dimension": 512,
             "name": "Universal Sentence Encoder"
         },
-        "BERT": {
-            "url": "https://tfhub.dev/google/bert_uncased_L-12_H-768_A-12/3",
-            "dimension": 768,
-            "name": "BERT Uncased"
+        "USEL": {
+            "url": "https://tfhub.dev/google/universal-sentence-encoder-large/5",
+            "dimension": 512,
+            "name": "USE Large"
         }
     }
     
@@ -30,7 +30,7 @@ class LiuConfig:
     DEFAULT_CHUNK_OVERLAP = 200
     
     # Vector Store Settings
-    DEFAULT_CHROMA_PATH = "./chroma_db"
+    DEFAULT_VECTOR_PATH = "./liu_db"
     DEFAULT_COLLECTION_NAME = "default_collection"
     DISTANCE_METRIC = "cosine"  # "cosine", "l2", "ip"
     
@@ -47,3 +47,7 @@ class LiuConfig:
     # Logging
     LOG_LEVEL = "INFO"  # "DEBUG", "INFO", "WARNING", "ERROR"
     LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+    # Similarity Score Threshold
+    DEFAULT_SIMILARITY_SEARCH_SCORE_THRESHOLD = 0.45
+    

@@ -11,7 +11,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="liuembeddings",
-    version="0.1.0",
+    version="1.1.0",
     author="Himanshu Singh",
     author_email="Himanshuclub88@gmail.com",
     description="TensorFlow-based embeddings with ChromaDB vector " \
@@ -19,7 +19,7 @@ setup(
     "decrease api charge as run on local light weight and easy to learn",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/liuembeddings",
+    url="https://github.com/himanshuclub88/liuembeddings",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3.8",
@@ -39,7 +39,7 @@ setup(
     "tensorflow==2.20.0",
     "tensorflow-hub==0.16.1",
     "chromadb==1.2.1",
-    "numpy>=1.20.0",
+    "numpy>=1.26.4",
     ],
 
 
@@ -61,6 +61,7 @@ setup(
     project_urls={
         "Bug Reports": "https://github.com/himanshuclub88/liuembeddings/issues",
         "Source": "https://github.com/himanshuclub88/liuembeddings",
-        "Documentation": "https://github.com/himanshuclub88/liuembeddings/README.md",
+        "Documentation": "https://himanshuclub88.github.io/liuembeddings/",
     },
+    include_package_data=True,
 )

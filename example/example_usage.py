@@ -101,7 +101,8 @@ print(f"Added {vector_store.count_documents()} documents")
 # Search
 raw,results = vector_store.similarity_search(
     "What techniques improve model accuracy?",
-    n_results=1
+    n_results=1,
+    with_score=.3
 )
 
 print(f"\nSearch results:")

@@ -194,7 +194,6 @@ from liuembeddings import LiuEmbeddings, LiuVectorStore, search
 
 ---
 
-## Installation & Setup Instructions
 
 ### Step 1: Prepare Files
 ```bash

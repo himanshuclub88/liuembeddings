@@ -2,54 +2,124 @@ site_name: Liu Embeddings
 site_url: https://himanshuclub88.github.io/liuembeddings/
 repo_url: https://github.com/himanshuclub88/liuembeddings
 repo_name: himanshuclub88/liuembeddings
+edit_uri: edit/main/docs/
 
 theme:
   name: material
   logo: assets/logo.png
   favicon: assets/favicon.ico
+  
   features:
     - navigation.instant
     - navigation.expand
+    - navigation.tabs
+    - navigation.tabs.sticky
     - toc.integrate
+    - toc.follow
     - search.highlight
+    - search.share
+    - search.suggest
     - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    
   palette:
     - scheme: default
       primary: indigo
       accent: deep purple
-  font:
-    text: Inter
-    code: JetBrains Mono
-  icon:
-    repo: fontawesome/brands/github
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+font:
+  text: Inter
+  code: JetBrains Mono
+
+icon:
+  repo: fontawesome/brands/github
+  logo: material/brain
 
 nav:
   - Home: index.md
-  - Documentation: docs.md
-  - Developer Guide: DEVELOPER_GUIDE.md
-  - Package Structure: PACKAGE_STRUCTURE.md
-  
+  - Getting Started:
+    - Introduction: introduction.md
+    - Quick Start: quickstart.md
+    - API Reference: api-reference.md
+    - Examples & Workflows: examples.md
+  - Quick Docs: docs.md
+  - Developer Resources:
+    - Developer & Contributor Guide: developer-guide.md
+    - Package Structure: PACKAGE_STRUCTURE.md
 
 markdown_extensions:
   - toc:
       permalink: true
+      toc_depth: 3
   - tables
   - admonition
-  - codehilite
+  - codehilite:
+      linenums: true
   - footnotes
   - def_list
   - attr_list
   - md_in_html
   - pymdownx.details
-  - pymdownx.superfences
-  
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/himanshuclub88
-      name: GitHub
+      name: GitHub Profile
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/liuembeddings/
-      name: PyPI
-  generator: false
+      name: PyPI Package
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com
+      name: Twitter
+
+  version:
+    provider: mike
+    default: latest
+
+copyright: |
+  &copy; 2024 Liu Embeddings • 
+  <a href="https://github.com/himanshuclub88/liuembeddings/blob/main/LICENSE">MIT License</a>
+
+plugins:
+  - search:
+      lang: en
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+
+extra_css:
+  - assets/extra.css
+
+extra_javascript:
+  - assets/extra.js
+
+watch:
+  - docs

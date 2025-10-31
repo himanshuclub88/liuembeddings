@@ -7,10 +7,12 @@ A lightweight Python framework for semantic search using TensorFlow
 embeddings and ChromaDB vector database.
 """
 
-__version__ = "0.1.0"
+
+__version__ = "2.0.0"
 __author__ = "Himanshu Singh"
 __license__ = "MIT"
 
+from transformers import pipeline
 from .embeddings import LiuEmbeddings
 from .vectorstore import LiuVectorStore
 from .utils import clean_text, split_text, validate_texts, batch_generator, clean

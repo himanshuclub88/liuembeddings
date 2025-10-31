@@ -2,26 +2,26 @@
 # LiuEmbedding = embedding + storage
 **Save your money on expensive embedding models**
 
-# LiuEmbedding
+## LiuEmbedding
 
-LiuEmbedding is a lightweight semantic search framework that combines **embedding generation** with **vector storage**. Built on TensorFlow embeddings and ChromaDB vector storage, it provides a unified solution for small to medium projects requiring efficient embedding, storage, and retrieval operations.
+LiuEmbedding is a lightweight semantic search framework that combines **embedding generation** with **vector storage**. Built on HuggingFace embeddings and ChromaDB vector storage, it provides a unified solution for small to medium projects requiring efficient embedding, storage, and retrieval operations.
 
 ## 🚀 Why Choose LiuEmbedding?
 
 ### ⚡ Easy to Use - No Additional Setup Required
 - **Minimal setup** - Get started in minutes, not hours
 - **Zero configuration** - Works out of the box with sensible defaults
-- **Automatic dependency management** - No manual ChromaDB or TensorFlow setup needed
+- **Automatic dependency management** - No manual ChromaDB or HuggingFace setup needed
 
 ### 💰 Cost-Effective Alternative
-- **No expensive API calls** - Use open-source TensorFlow models instead of paid embedding services
+- **No expensive API calls** - Use open-source HuggingFace models instead of paid embedding services
 - **Self-hosted solution** - Avoid recurring costs associated with cloud-based embedding APIs
 
 
 ## Core Architecture
 
 ### Embedding Layer
-- **TensorFlow-based embedding generation** with consistent interface
+- **HuggingFace-based embedding generation** with consistent interface
 - Model information exposure for debugging and observability
 - Support for various pre-trained models and custom implementations
 
@@ -39,7 +39,7 @@ LiuEmbedding is a lightweight semantic search framework that combines **embeddin
 - **Lightweight**: Minimal dependencies while maintaining full functionality
 
 
-LiuEmbeddings is a lightweight framework for semantic search built around TensorFlow-based embeddings and a ChromaDB-backed vector store. It targets small to medium projects that need fast embedding, storage, and retrieval with clear CRUD and batch APIs plus robust logging and validation out of the box.
+LiuEmbeddings is a lightweight framework for semantic search built around HuggingFace-based embeddings and a ChromaDB-backed vector store. It targets small to medium projects that need fast embedding, storage, and retrieval with clear CRUD and batch APIs plus robust logging and validation out of the box.
 
 
 ### Installation
@@ -68,7 +68,7 @@ store.add_texts([
 ])
 
 results, documents = store.similarity_search(
-    "What is Python?", n_results=2
+    "What is Python?", n_results=1
 )
 
 print(documents)
@@ -183,14 +183,14 @@ Here’s a **professional and detailed `README.md`** section for your `liuembedd
 
 ---
 
-# 🧠 `LiuVectorStore` — Semantic Vector Storage with ChromaDB
+## 🧠 `LiuVectorStore` — Semantic Vector Storage with ChromaDB
 
-`LiuVectorStore` is a high-level wrapper around **ChromaDB** that integrates seamlessly with **TensorFlow-based embeddings** (`LiuEmbeddings`).
+`LiuVectorStore` is a high-level wrapper around **ChromaDB** that integrates seamlessly with **HuggingFace-based embeddings** (`LiuEmbeddings`).
 It provides a complete CRUD + semantic search interface with optional batch ingestion, persistence, and metadata filtering.
 
 ---
 
-## ⚙️ Initialization
+### ⚙️ Initialization
 
 ```python
 from liuembeddings import LiuEmbeddings
@@ -209,9 +209,9 @@ store = LiuVectorStore(embedder, collection_name="my_collection")
 
 ---
 
-## 📥 Adding Data
+### 📥 Adding Data
 
-### `add_texts(texts, metadatas=None, ids=None)`
+#### `add_texts(texts, metadatas=None, ids=None)`
 
 Adds one or more text documents to the vector store.
 
@@ -239,7 +239,7 @@ store.add_texts(
 
 ---
 
-### `add_texts_batch(texts, batch_size=None, metadatas=None, ids=None)`
+#### `add_texts_batch(texts, batch_size=None, metadatas=None, ids=None)`
 
 Adds large datasets in batches to manage memory efficiently.
 
@@ -253,9 +253,9 @@ store.add_texts_batch(data, batch_size=5)
 
 ---
 
-## 🔍 Querying & Search
+### 🔍 Querying & Search
 
-### `query(query_text, n_results=None) -> (raw_results, documents)`
+#### `query(query_text, n_results=None) -> (raw_results, documents)`
 
 Performs **semantic search** and returns both raw and simplified results.
 
@@ -272,14 +272,14 @@ Returns:
 
 ---
 
-### `similarity_search(query_text, n_results=None, with_score=None)`
+#### `similarity_search(query_text, n_results=None, with_score=None)`
 
 Returns the most similar documents with similarity scores.
 
 ```python
 
 # With similarity scores
-raw,results, _ = store.similarity_search("Python language")
+raw,results = store.similarity_search("Python language")
 for r in results:
     print(r["id"], r["similarity_score"], r["document"])
 ```
@@ -294,7 +294,7 @@ for r in results:
     "similarity_score": 0.93
 }
 ```
-## Cleaning raw output using `clean`
+### Cleaning raw output using `clean`
 -----
 
 ```python
@@ -339,9 +339,9 @@ CleanOutput
 
 ---
 
-## 🧾 Document Management
+### 🧾 Document Management
 
-### `search_by_id(doc_id) -> dict | None`
+#### `search_by_id(doc_id) -> dict | None`
 
 Fetch a document and metadata by its unique ID.
 
@@ -362,7 +362,7 @@ Returns:
 
 ---
 
-### `search_by_metadata(metadata_filter) -> list[dict]`
+#### `search_by_metadata(metadata_filter) -> list[dict]`
 
 Find documents matching a specific metadata filter.
 
@@ -374,7 +374,7 @@ Returns a list of `{id, document, metadata}` objects.
 
 ---
 
-### `get_all() -> list[dict]`
+#### `get_all() -> list[dict]`
 
 Retrieve **all** documents and metadata from the collection.
 
@@ -386,7 +386,7 @@ Useful for exporting or debugging.
 
 ---
 
-### `update_by_id(doc_id, new_text, new_metadata=None)`
+#### `update_by_id(doc_id, new_text, new_metadata=None)`
 
 Replace a document’s text (and optionally metadata).
 
@@ -398,7 +398,7 @@ store.update_by_id("docA", "Updated Document A", {"topic": "Updated"})
 
 ---
 
-### `delete_by_id(doc_id)`
+#### `delete_by_id(doc_id)`
 
 Remove a specific document by ID.
 
@@ -408,9 +408,9 @@ store.delete_by_id("docB")
 
 ---
 
-## 📊 Collection Info & Utilities
+### 📊 Collection Info & Utilities
 
-### `count_documents() -> int`
+#### `count_documents() -> int`
 
 Get the total number of stored documents.
 
@@ -420,7 +420,7 @@ print("Document count:", store.count_documents())
 
 ---
 
-### `save(path)`
+#### `save(path)`
 
 Export all documents and metadata to a `.json` file.
 
@@ -430,7 +430,7 @@ store.save("backup_my_collection.json")
 
 ---
 
-### `info` (property)
+#### `info` (property)
 
 Quick collection overview:
 
@@ -444,15 +444,15 @@ Output example:
 {
     "name": "my_collection",
     "document_count": 42,
-    "embedding_model": "TensorFlow Universal Sentence Encoder"
+    "embedding_model": "HuggingFace Universal Sentence Encoder"
 }
 ```
 
 ---
 
-## 🪄 One-Call Convenience Search
+### 🪄 One-Call Convenience Search
 
-### `search(query=None, text_document=None, chunk_size=None, chunk_overlap=None, n_results=None)`
+#### `search(query=None, text_document=None, chunk_size=None, chunk_overlap=None, n_results=None)`
 
 End-to-end helper that:
 
@@ -512,7 +512,7 @@ vector_store.search(
 
 ---
 
-## 🧩 Example Workflow
+### 🧩 Example Workflow
 
 ```python
 # Create embeddings
@@ -535,7 +535,7 @@ print(store.info)
 
 ---
 
-## 🧱 Design Overview
+### 🧱 Design Overview
 
 | Feature                | Description                                                 |
 | ---------------------- | ----------------------------------------------------------- |
@@ -628,13 +628,13 @@ This mirrors the example’s approach to batched add and subsequent metadata fil
 
 
 
-# Fastquery
+## Fastquery
 
 LiuEmbeddings includes an advanced utility function for rapid prototyping and streamlined semantic search, `fastquery`. This section adds full documentation and usage examples for `fastquery`, and clarifies key usage expectations such as embedding model consistency and API behaviors. All major methods, including `fastquery`, are now documented with coding blocks and concise explanations for every function.
 
 ***
 
-## 🚀 Quick Embedding (`fastquery`)
+### 🚀 Quick Embedding (`fastquery`)
 
 - Always define collection do not rely on default collection
 - Alaways rely on default embedings or use only 1 for all
@@ -784,7 +784,7 @@ fastquery(
 
 > ⚠️ **Note:** `n_results` specifies the maximum number of similar results to retrieve when querying.
 
----
+
 
 **Querying the Collection**
 
@@ -807,7 +807,6 @@ for item in ans:
 ```
 Answer: Last month, she discovered a small comet passing near Jupiter and recorded its movement in her astronomy journal.
 ```
----
 
 When `with_score=.5`, `fastquery` returns:
 * `raw`: the raw retrieval output.
@@ -841,7 +840,6 @@ Metadata: {'source': 'story_collection'}
 Similarity score: 0.41
 ```
 
----
 
 - You can filter results by similarity score to get only the most relevant documents:
 
@@ -857,9 +855,9 @@ Answer: Last month, she discovered a small comet passing near Jupiter and record
 
 > This allows you to exclude low-relevance documents from your results.
 
----
 
-## Summary
+
+### Summary
 
 * **Adding documents:** `fastquery(text_document, collection_name)`
 * **Querying documents:** `fastquery(query, collection_name)`
@@ -869,12 +867,6 @@ Answer: Last month, she discovered a small comet passing near Jupiter and record
 This function is particularly useful for **quick semantic search**, **QA over text collections**, and **vector database integrations**.
 
 ---
-
-If you want, I can also create a **diagram showing the workflow**: document → collection → query → result, which would make this explanation even clearer.
-
-Do you want me to do that?
-
-***
 
 ### Notes on Model and Collection Management
 
@@ -893,7 +885,7 @@ Attempting to switch models within the same collection will result in an error.
 
 ***
 
-## Summary Table: Quick Embedding API
+### Summary Table: Quick Embedding API
 
 | Function | Purpose | Returns | Model Switching | Use Case |
 | :-- | :-- | :-- | :-- | :-- |
@@ -902,9 +894,7 @@ Attempting to switch models within the same collection will result in an error.
 | LiuVectorStore | Full CRUD/search | Document batches | At initialization | Persistent/high-volume apps |
 
 
-***
-
-## Complete Example: End-to-End Embedding and Immediate Query
+### Complete Example: End-to-End Embedding and Immediate Query
 
 ```python
 from liuembeddings import fastquery
@@ -926,28 +916,111 @@ results = fastquery(
 for answer in results:
     print(answer)
 ```
+> ⚠️ **Note:** Make sure the embedding model is compatible with the hub and that the dimensions match your configuration.
+
+
+### Final Tips
+
+- **Use `fastquery` for fast, disposable vector stores and quick searches.**
+- **Switch models only by creating new collections—existing data uses a single embedding model.**
+- For larger or persistent applications, use the full LiuEmbeddings and LiuVectorStore APIs documented above for manual control, persistence, batch processing, and advanced CRUD.
+
 
 
 ## Embedding
 
-- We can convert to embedding for visulization and other purpose
-- Two embedding modeles we have 
+
+**Module:** `liuembeddings.embeddings`
+
+Transformer-based embeddings using Sentence-Transformers. Features model caching for performance and multiple model support.
+
+### Initialization
+
+```python
+from liuembeddings import LiuEmbeddings
+
+# Default model (USE - 768 dimensions)
+embedder = LiuEmbeddings()
+
+# Custom model
+embedder = LiuEmbeddings(model_name="MiniLM")
+```
+
+**Parameters:**
+- `model_name` (str) - Model to use. Options: `MiniLM`, `MPNetBase`, `USE`, `USEL`. Default: `"USE"`
+
+**Raises:**
+- `ValueError` - If model_name not in available models
+- `RuntimeError` - If model loading fails
+
+### Available Models
+
+| Model | ID | Dimension | Size (MB) | Accuracy | Best For |
+|-------|----|-----------|-----------|-----------|---------| 
+| `MiniLM` | `sentence-transformers/all-MiniLM-L6-v2` | 384 | 22 | 0.78 | ⚡ Speed |
+| `MPNetBase` | `sentence-transformers/all-mpnet-base-v2` | 768 | 420 | 0.82 | ⚖️ Balanced |
+| `USE` | `intfloat/e5-base-v2` | 768 | 300 | 0.84 | 🎯 Quality (default) |
+| `USEL` | `BAAI/bge-base-en-v1.5` | 1024 | 1024 | 0.86 | 🏆 Premium |
+
+---
+
+
+### Properties
+
+#### `model_info -> dict`
+
+Get information about the loaded model.
+
+```python
+info = embedder.model_info
+
+print(info)
+# {
+#     'name': 'USE',
+#     'id': 'intfloat/e5-base-v2',
+#     'dimension': 768,
+#     'size_mb': 300,
+#     'description': 'High-quality semantic embeddings...',
+#     'accuracy': 0.84
+# }
+```
+
+**Returns:**
+```python
+{
+    'name': str,           # Model name
+    'id': str,             # HuggingFace model ID
+    'dimension': int,      # Output dimension
+    'size_mb': int,        # File size in MB
+    'description': str,    # Model description
+    'accuracy': float      # Accuracy score
+}
+```
+
+### Internal Modules
+
+- Embeder Built in functions designed to Asist vector DB in converting  'text -> vectors'
+- We can use it for visualisation of data to vectors
+- All embedding models we have 
 -   ``` USE  512 dimension DEAFAULT``` 
--   ``` USEL 512 dimension ```
+-   ``` USEL 1024 dimension ```
+-   ``` MPNetBase 512 dimension ```
+-   ``` MiniLM 384 dimension ```
+
 
 ```python
 # Single query embedding
 from liuembeddings import LiuEmbeddings
 
 print("\nInitializing embedding model")
-embedder = LiuEmbeddings(model_name="USE") # USE AND USEL
+embedder = LiuEmbeddings(model_name="USE") 
 
 query_embedding = embedder.embed_query("What is machine learning?")
 
 print(f"Query embedding dimension: {len(query_embedding)}")
 print(f"First 5 embedded values in vector: {query_embedding[:5]}")
 
->>> Query embedding dimension: 512
+>>> Query embedding dimension: 768
 >>> First 5 embedded values in vector: [-0.004198556765913963, -0.07223273068666458, -0.06091027706861496, -0.007246586959809065, -0.022054186090826988]
 
 ```
@@ -979,29 +1052,31 @@ for i in doc_embeddings:
 
 ---
 
-## External Embeddings Model
+### External Embeddings Model
 
 You can add a new embedding model by modifying `LiuConfig.AVAILABLE_MODELS`. While you can use any embedding model of your choice, it is recommended to use the predefined models like **USE** or **USEL** for compatibility.
 
-### Adding an External Embedding Model
+#### Adding an External Embedding Model
 
-1. Ensure the model is compatible with TensorFlow Hub.
+1. Ensure the model is compatible with HuggingFace Hub.
 2. Provide the model URL, embedding dimension, and a custom name.
 
 ```python
 from liuembeddings import LiuEmbeddings, LiuVectorStore, LiuConfig
 
 # Add a custom external embedding model
-LiuConfig.AVAILABLE_MODELS['NNLM'] = {
-    'url': "https://tfhub.dev/google/nnlm-en-dim50/2",
-    'dimension': 50,
-    'name': 'NNLM (custom name of your choice)'
+LiuConfig.AVAILABLE_MODELS['MPNetMini'] = {
+    'id': "sentence-transformers/all-mpnet-base-v2",  # HuggingFace MPNet variant
+    'dimension': 384,
+    'full_name': 'MPNet Mini', # OPTIONAL
+    'size': 90,  # OPTIONAL MB
+    'description': 'Smaller MPNet variant, faster than full base', # OPTIONAL
+    'accuracy': 0.80 # OPTIONAL
 }
 
 # Initialize the custom embedder
-custom_embedder = LiuEmbeddings('NNLM')
+custom_embedder = LiuEmbeddings('MPNetMini')
 
-custom_embedder=LiuEmbeddings('NNLM') 
 
 custom_vector = LiuVectorStore(
     embedding_model=custom_embedder,
@@ -1033,24 +1108,8 @@ for i in docs:
 print(raw)
 ```
 
-> ⚠️ **Note:** Make sure the embedding model is compatible with the hub and that the dimensions match your configuration.
 
 ---
-
-***
-
-## Final Tips
-
-- **Use `fastquery` for fast, disposable vector stores and quick searches.**
-- **Switch models only by creating new collections—existing data uses a single embedding model.**
-- For larger or persistent applications, use the full LiuEmbeddings and LiuVectorStore APIs documented above for manual control, persistence, batch processing, and advanced CRUD.
-
-***
----
-<span style="display:none"></span>
-
-
-
 
 
 
@@ -1072,34 +1131,26 @@ You can modify or extend these settings as needed for custom use cases.
 
 ### 🔹 Default Embedding Model Settings
 
-| Attribute         | Description                               | Default                                                   |
-| ----------------- | ----------------------------------------- | --------------------------------------------------------- |
-| `EMBEDDING_MODEL` | Default TensorFlow Hub URL for embeddings | `"https://tfhub.dev/google/universal-sentence-encoder/4"` |
-| `MODEL_DIMENSION` | Embedding vector dimension                | `512`                                                     |
-
+| Model Name  | ID                                        | Dimension | Size (MB) | Accuracy |
+| ----------- | ----------------------------------------- | --------- | --------- | -------- |
+| `MiniLM`    | `sentence-transformers/all-MiniLM-L6-v2`  | 384       | 22        | 0.78     |
+| `MPNetBase` | `sentence-transformers/all-mpnet-base-v2` | 768       | 420       | 0.82     |
+| `USE`       | `intfloat/e5-base-v2`                     | 768       | 300       | 0.84     |
+| `USEL`      | `BAAI/bge-base-en-v1.5`                   | 1024      | 1024      | 0.86     |
 ---
 
-### 🔹 Available Models
-
-You can select from predefined embedding models or extend them with custom ones.
-
-| Key      | URL                                                                                                                        | Dimension | Name                       |
-| -------- | -------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------- |
-| **USE**  | [https://tfhub.dev/google/universal-sentence-encoder/4](https://tfhub.dev/google/universal-sentence-encoder/4)             | 512       | Universal Sentence Encoder |
-| **USEL** | [https://tfhub.dev/google/universal-sentence-encoder-large/5](https://tfhub.dev/google/universal-sentence-encoder-large/5) | 512       | Universal Sentence Encoder |
 
 
-### 🔹 Below example show how to add a custom model
+### 🔹 Below example show how to add a custom model (must be compatiable with HuggingFace)
 
 ```python
 from liuembeddings import LiuConfig
 
 # Add a new model
-LiuConfig.AVAILABLE_MODELS["NNLM"] = {
-    "url": "https://tfhub.dev/google/nnlm-en-dim50/2",
-    "dimension": 50,
-    "name": "NNLM"
-}
+LiuConfig.AVAILABLE_MODELS['MPNetMini'] = {
+    'id': "sentence-transformers/all-mpnet-base-v2",  # HuggingFace MPNet variant
+    'dimension': 384,
+    'full_name': 'my model', 
 ```
 
 ---
@@ -1197,18 +1248,6 @@ LiuConfig.DEFAULT_N_RESULTS = 10
 ---
 
 
-### Requirements and project structure
-
-- Requirements include Python 3.8+, TensorFlow 2.8+, ChromaDB 0.3+, and NumPy 1.20+, and the repository layout includes embeddings.py, vectorstore.py, utils, config, logger modules, tests, and packaging files as shown in the current README.
-
-
-### Notes on return shapes and usage patterns
-
-- query and similarity_search return a tuple of (raw_results, documents) when with_score is False, and your code should access the second element to iterate over just the text matches, as demonstrated by assigning ans = ans before printing chunks.
-- similarity_search with with_score=True returns a list of dicts where id can be fed into update_by_id and search_by_id to perform targeted modifications and retrieval as illustrated in the example.
-- search composes splitting, ingestion, and similarity search and returns the same shape as similarity_search in the default mode, enabling quick prototyping without wiring multiple calls in your application code.
-
-
 ### Existing examples
 
 - The repository examples cover basic embedding, text processing, CRUD, batch operations, one‑liner search, and error handling, and the updated examples above align with those flows while clarifying parameter names and return shapes.
@@ -1230,6 +1269,3 @@ LiuConfig.DEFAULT_N_RESULTS = 10
 If you’d like this as a drop‑in replacement file, the sections above can fully replace the current README’s Quick Start and API portions while keeping badges, installation, testing, and contribution policy intact from the existing document.
 
 <div align="center">⁂</div>
-
-[^1]: example_usage.py
-: example.mimimal.py

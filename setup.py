@@ -11,7 +11,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="liuembeddings",
-    version="1.1.0",
+    version="2.0.0",
     author="Himanshu Singh",
     author_email="Himanshuclub88@gmail.com",
     description="TensorFlow-based embeddings with ChromaDB vector " \
@@ -21,26 +21,31 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/himanshuclub88/liuembeddings",
     packages=find_packages(),
-    classifiers=[
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Developers",
-        "Topic :: Scientific/Engineering :: Artificial Intelligence",
-        "Topic :: Text Processing :: Linguistic",
-    ],
+    classifiers = [
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+],
     python_requires=">=3.8",
     
     install_requires=[
-    "tensorflow==2.20.0",
-    "tensorflow-hub==0.16.1",
+    "sentence-transformers==5.1.2",
+    "transformers==4.57.1",
+    "torch==2.9.0",
     "chromadb==1.2.1",
-    "numpy>=1.26.4",
+    "numpy==1.26.4",
     ],
+
+
 
 
     extras_require={

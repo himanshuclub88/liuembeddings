@@ -45,8 +45,8 @@ liuembeddings/
 ### Core Module Files ()
 
 **File: embeddings.py** 
-- TensorFlow-based embeddings using Universal Sentence Encoder
-- Supports multiple models (USE, BERT)
+- HuggingFace-based embeddings using Universal Sentence Encoder
+- Supports multiple models (USE, USEL, MiniLM..etc)
 - Features: model caching, batch processing, type validation
 - Key Classes: `LiuEmbeddings`
 - Key Methods: `embed_query()`, `embed_documents()`, `embed_documents_batch()`
@@ -192,52 +192,6 @@ from utils import split_text, clean_text
 from liuembeddings import LiuEmbeddings, LiuVectorStore, search
 ```
 
----
-
-
-### Step 1: Prepare Files
-```bash
-# Rename files to remove _v2 suffix
-mv embeddings_v2.py embeddings.py
-mv vectorstore_v2.py vectorstore.py
-mv utils_v2.py utils.py
-mv __init___v2.py __init__.py
-mv README_v2.md README.md
-```
-
-### Step 2: Directory Structure
-```bash
-# Ensure directories exist
-mkdir -p liuembeddings
-mkdir -p tests
-mkdir -p docs
-
-# Move files to correct locations
-mv embeddings.py config.py logger.py liuembeddings/
-mv vectorstore.py utils.py __init__.py liuembeddings/
-mv test_*.py tests/
-```
-
-### Step 3: Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### Step 4: Verify Setup
-```bash
-# Test imports
-python -c "from liuembeddings import LiuEmbeddings; print('✓ Import works')"
-
-# Run tests
-pytest tests/ -v
-
-# Check code quality
-flake8 liuembeddings/
-mypy liuembeddings/
-```
-
----
-
 ## Quick Reference
 
 ### User Workflow
@@ -287,7 +241,7 @@ mypy liuembeddings/
 |--------|---------|---------|---------|
 | config.py | none | LiuConfig | Configuration |
 | logger.py | config | setup_logger | Logging |
-| embeddings.py | logger, config, TensorFlow | LiuEmbeddings | Embeddings |
+| embeddings.py | logger, config, HuggingFace | LiuEmbeddings | Embeddings |
 | vectorstore.py | logger, config, ChromaDB | LiuVectorStore | Storage |
 | utils.py | logger, config, re | Functions | Utilities |
 | __init__.py | All above | Public API | Package |

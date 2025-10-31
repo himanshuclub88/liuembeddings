@@ -37,7 +37,7 @@ def clean(raw : dict):
 
 def clean_text(
     text: str, 
-    lowercase: bool = True, 
+    lowercase: bool = False, 
     remove_extra_spaces: bool = True,
     remove_newlines: bool = True
 ) -> str:
@@ -82,7 +82,8 @@ def split_text(
     chunk_size: int = None,
     chunk_overlap: int = None,
     split_by_sentences: bool = True,
-    clean_before_split: bool = True
+    clean_before_split: bool = True,
+    lowercase: bool = False
 ) -> List[str]:
     """
     Split text into overlapping chunks.
@@ -115,7 +116,7 @@ def split_text(
                          "Chunk overlap is larger than chunk size" if chunk_overlap >= chunk_size else "")
     
     if clean_before_split:
-        text = clean_text(text)
+        text = clean_text(text, lowercase=lowercase)
     
     if not text.strip():
         raise ValueError("Text is empty after cleaning")
@@ -191,7 +192,7 @@ def validate_texts(texts: List[str], min_length: int = 1) -> bool:
     return True
 
 
-def batch_generator(items: str, batch_size: int):
+def batch_generator(items: List, batch_size: int):
     """
     Generator for processing items in batches.
     

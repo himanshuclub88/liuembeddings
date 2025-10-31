@@ -1,7 +1,7 @@
 # liuembeddings/vectorstore.py
 
 """
-Vector store implementation using ChromaDB with TensorFlow embeddings.
+Vector store implementation using ChromaDB with HuggingFace  embeddings.
 """
 
 from typing import List, Dict, Optional, Any, Tuple
@@ -20,7 +20,7 @@ logger = setup_logger(__name__)
 
 class TFEmbeddingWrapper(EmbeddingFunction[Documents]):
     """
-    Wrapper to make TensorFlow embeddings compatible with ChromaDB.
+    Wrapper to make HuggingFace  embeddings compatible with ChromaDB.
     
     This class adapts the LiuEmbeddings interface to ChromaDB's
     EmbeddingFunction protocol.
